@@ -23,6 +23,15 @@
       <div class="clear"></div>
     </div>
   </section>
+  <section class="destaque">
+    <div class="conteudo">
+      <h2><span><img src="img/banner_localizacao.svg" width="52" height="65" alt="O 1&ordm; empreendimento da Housi em Chapec&oacute;"/></span>O 1&ordm; empreendimento<br />da Housi em Chapec&oacute;<br />est&aacute; localizado no ponto<br />alto do centro de cidade.</h2>
+      <h3>E &eacute; a escolha certa para <strong>morar ou investir</strong> com seguran&ccedil;a.</h3>
+    </div>
+  </section>
+  <section class="diferenciais">
+    <div class="conteudo"></div>
+  </section>
   <footer><?php include("rodape.php")?></footer>
 <?php include("scripts.php"); ?>
 <script>AOS.init();</script>

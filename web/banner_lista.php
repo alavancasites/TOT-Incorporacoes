@@ -1,1 +1,3 @@
-<div class="topo"></div>
+<?php /*?><div class="banner_imagem"><div class="banner_efeito"><strong>Entrei,</strong> me encontrei.</div></div><?php */?>
+<div class="banner_imagem"><img src="img/banner_n.jpg" width="1920" height="926" class="imgfull" alt="TOT Incorpora&ccedil;&otilde;es Chapec&oacute;"/></div>
+<div class="banner_texto"><img src="img/banner_texto.jpg" width="1920" height="926" class="imgfull" alt="TOT Incorpora&ccedil;&otilde;es Chapec&oacute;"/></div>

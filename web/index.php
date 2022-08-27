@@ -5,7 +5,8 @@ include_once("gzip/gzipHTML.php");
 //session_start();
 include_once("RequestManager.php");
 $rotas = array(
-	'/empresa'=> 'empresa.php',
+	'/quem-somos'=> 'quem-somos.php',
+	'/empreendimentos'=> 'empreendimentos_page.php',
 	'/servico/(?P<servico>\S+)/(?P<titulo>\S+)'=>'servicos_mostra.php',
   '/'=>'inicial.php',
 	'/inicial'=>'inicial.php',
