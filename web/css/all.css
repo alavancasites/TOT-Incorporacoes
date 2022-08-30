@@ -6,11 +6,14 @@
 @font-face {font-family: 'avenir_roman';src: url('css/fontes/avenir-roman-webfont.woff2') format('woff2'), url('css/fontes/avenir-roman-webfont.woff') format('woff');font-weight: normal;font-style: normal;}
 @font-face {font-family: 'din_bold';src: url('css/fontes/din-bold-webfont.woff2') format('woff2'), url('css/fontes/din-bold-webfont.woff') format('woff');font-weight: normal;font-style: normal;}
 @font-face {font-family: 'icomoon';src:  url('css/fontes/icomoon.eot?hj3kxv');src:  url('css/fontes/icomoon.eot?hj3kxv#iefix') format('embedded-opentype'),url('css/fontes/icomoon.ttf?hj3kxv') format('truetype'),url('css/fontes/icomoon.woff?hj3kxv') format('woff'),url('css/fontes/icomoon.svg?hj3kxv#icomoon') format('svg');font-weight: normal;font-style: normal;font-display: block;}[class^="icon-"], [class*=" icon-"] {font-family: 'icomoon' !important;speak: never;font-style: normal;font-weight: normal;font-variant: normal;text-transform: none;line-height: 1;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;}
-.icon-seta_dir:before {content: "\e900";}
-.icon-seta_esq:before {content: "\e901";}
+.icon-video_dir:before {content: "\e900";}
+.icon-video_esq:before {content: "\e901";}
+.icon-seta_dir:before {content: "\e902";}
+.icon-seta_esq:before {content: "\e903";}
 .icon-facebook:before {content: "\e908";}
 .icon-instagram:before {content: "\e90c";}
 .icon-linkedin:before {content: "\e90d";}
+.icon-play:before {content: "\e904";}
 /*-------------------------------- ! FONTES !-----------------------------*/
 /*------------------------------------------------------------------------
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&display=swap);font-family: Roboto, sans-serif;
@@ -106,6 +109,9 @@ i {transition: all .3s linear }
 #topo .logo, #topo .menu {margin-left: 0px; margin-right: 0px; text-align: center; float: none; width: 100%}
 #topo .logo img { width: 150px}
 }
+@media only screen and (max-width: 580px){
+
+}
 
 
 #banner {max-height: 920px; overflow: hidden}
@@ -114,18 +120,6 @@ i {transition: all .3s linear }
 
 @keyframes fadein{0% { opacity:0; }66% { opacity:0; }100% { opacity:1; }}
 @-webkit-keyframes fadein{0% { opacity:0; }66% { opacity:0; }100% { opacity:1; }}
-
-/*#banner .banner_imagem {background: url("img/banner_n.jpg") center center no-repeat; height: 926px;}
-#banner .banner_texto {background: url("img/banner_texto.jpg") center center no-repeat; height: 926px;}
-
-#banner .banner_efeito { text-align: center; width: 70%; height: 430px; padding-top: 200px; color: #FFF; position: absolute; top: 300px; margin-left: 15%; margin-right: auto; font-family: "avenir_demi", sans-serif; font-size: 123px;}
-#banner .banner_efeito span {color:var(--secundaria);}
-
-.banner_efeito { width: 100%; text-align: center;white-space: nowrap; overflow: hidden; animation: type 4s steps(60, end); }
-.banner_efeito strong {color:var(--secundaria);font-weight:400}
-@keyframes type{ from { width: 0; } } 
-@keyframes blink{to{opacity: .0;}}
-::selection{background:var(--secundaria);}*/
 
 .chamadas { background-color: var(--padrao); padding: 190px 0px 110px 0px;}
 .chamada_esq, .chamada_dir { width: 685px; float: left;}
@@ -138,8 +132,25 @@ i {transition: all .3s linear }
 .chamadas a:hover {text-decoration: none;}
 .chamadas a:hover span {background-color: #FFF; color:var(--padrao);}
 .chamadas a:hover span {box-shadow: 0px 0px 14px 0px rgba(255,255,255,.9);}
-
 .chamada_dir a span { margin-top: 60px;}
+
+@media only screen and (max-width: 1580px){
+  .chamadas { padding: 190px 0px 110px 0px;}
+  .chamada_esq, .chamada_dir { width: 49%; float: left;}
+  .chamada_dir {float: right;}
+  .chamadas a { height: 430px; line-height: 40px; font-size: 30px;}
+  .chamada_esq a {padding: 140px 50px 0px 50px; height: 350px;}
+  .chamada_dir a {padding: 140px 50px 0px 50px; height: 350px;}
+}
+@media only screen and (max-width: 1180px){
+  .chamadas { padding: 190px 0px 110px 0px;}
+  .chamada_esq a,.chamada_dir a {padding-top: 100px; height: 390px;}
+}
+
+@media only screen and (max-width: 980px){
+  .chamadas { padding: 190px 0px 110px 0px;}
+  .chamada_esq, .chamada_dir { width: 90%; float: none; margin:0px auto 50px auto;}
+}
 
 footer {text-align: center; color: #FFF; font-family: "din_bold", sans-serif; padding-bottom: 100px; margin-top: 150px;}
 footer a { color: #FFF;}
@@ -150,6 +161,13 @@ footer .infos span {border: none}
 footer .infos a { display: inline-block; margin-left: 22px;}
 footer .infos i { font-size: 32px; line-height: 74px; vertical-align: middle; display: inline-block}
 footer .infos img { vertical-align: middle; display: inline-block; margin-left: 120px;}
+@media only screen and (max-width: 1280px){
+  footer {text-align: left}
+}
+@media only screen and (max-width: 980px){
+  footer {text-align: center;}
+  footer .infos {text-align: center; margin-top: 45px;}
+}
 
 .inicial footer { margin-top: 0px;}
 .quem-somos #banner_internas {background: url("img/quem-somos.jpg") top center no-repeat; height: 716px} 
@@ -179,9 +197,168 @@ footer .infos img { vertical-align: middle; display: inline-block; margin-left: 
 .chamada_2 .txt {width: 590px; text-align: right; float: right; padding-bottom: 30px; color: #FFF; font-size: 18px; line-height: 38px; font-family: "avenir_book", sans-serif; margin-top: 30px;}
 .chamada_2 span {display: block;}
 
+@media only screen and (max-width: 1380px){
+  .chamada_1 .titulos,.chamada_2 .titulos { font-size: 50px; }
+  .chamada_1 .titulos, .chamada_2 .titulos {color: var(--secundaria);}
+  .chamada_1 span,.chamada_2 span {display: inline-block;}
+}
+@media only screen and (max-width: 750px){
+  .chamada_1 .titulos,.chamada_2 .titulos { font-size: 40px; line-height: 40px; }
+  .chamada_1 .titulos,.chamada_2 .titulos { width: 90%; margin: 30px auto 0px auto}
+  .chamada_1 .txt, .chamada_2 .txt {width: 90%; margin: 30px auto 0px auto;}
+  .chamada_1 span,.chamada_2 span {display: inline; margin-right: 10px}
+}
+
 .destaque { padding-top: 165px; background: url("img/empreendimentos_destaque.jpg") top center no-repeat; height: 659px; text-align: center;}
 .destaque h2 {text-transform: uppercase; color: #FFF; font-family: "avenir_black", sans-serif; text-align: center; font-size: 61px; line-height:98px;}
 .destaque h2 span {display: inline-block; margin-right: 20px;}
 .destaque h2 span img { vertical-align: middle;}
 .destaque h3 {display: inline-block; margin-top: 120px; color: #000; padding: 0px 30px; background-color: var(--secundaria); font-size: 30px; font-family: "avenir_roman", sans-serif; border-radius: 50px; line-height: 68px;}
 .destaque h3 strong {font-family: "avenir_black", sans-serif; font-weight: 400;}
+
+@media only screen and (max-width: 1050px){
+  .destaque { padding-top: 80px; min-height: 659px;}
+  .destaque h2 { font-size: 40px;}
+  .destaque h3 { margin-top: 40px;}
+}
+@media only screen and (max-width: 980px){
+  .destaque h3 { font-size: 24px;}
+}
+@media only screen and (max-width: 780px){
+  .destaque h2 {line-height:60px;}
+  .destaque h3 {line-height:40px;}
+}
+
+.diferenciais {padding: 80px 0px;}
+.caracteristicas {float:left; width: 390px; min-height: 80px; margin-top: 40px; font-family: "avenir_medium", sans-serif; font-size: 20px; color: #FFF;}
+.caracteristicas:nth-child(even) {float:right; width: 500px;}
+.caracteristicas div { width: 280px; float: left;}
+.caracteristicas:nth-child(even) div {width: 395px;}
+.caracteristicas div:first-child { width:90px; float: left;}
+
+@media only screen and (max-width: 1020px){
+  .caracteristicas div:first-child {width: 100%; text-align: center;}
+  .caracteristicas { width: 400px; text-align: center;}
+  .caracteristicas div {width: 400px;}
+  .caracteristicas:nth-child(even) { width: 400px;}
+}
+@media only screen and (max-width: 910px){
+  .caracteristicas div,
+  .caracteristicas div:first-child,
+  .caracteristicas,
+  .caracteristicas:nth-child(even),
+  .caracteristicas:nth-child(even) div { width: 100%;}
+}
+
+.sobre { background-color: #E8E8E8; padding: 80px 0px 200px 0px;}
+.sobre .titulos h2 { font-size: 36px; color: #999B9C; text-align: center; font-family: "avenir_medium", sans-serif;}
+.sobre .galeria {margin-top: 100px;}
+.sobre_lista a { height: 406px; color: #999B9C; border: 3px solid #999B9C; padding: 17px; display: block; margin: 0px 15px; background-position: top center; background-repeat: none; background-image: url("img/blank.png");}
+.sobre_lista a span { display: block;}
+.sobre_lista .ordem {font-size: 28px; font-family: "avenir_black", sans-serif;}
+.sobre_lista .tit   {font-size: 28px; font-family: "avenir_medium", sans-serif; margin-top: 80px; color: #999B9C; padding-bottom: 0px;}
+.sobre_lista .tit:after { content:'VEJA MAIS'; display: block; margin-top: 5px; padding-top: 10px; border-top:3px solid #999B9C; font-family: "avenir_medium", sans-serif; font-size: 13px; }
+.sobre_lista .area  {font-size: 13px; font-family: "avenir_medium", sans-serif; margin-top: 150px;}
+
+.sobre_lista a:hover {box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.3); background-image: url("img/_del/lavanderia.jpg"); color: var(--secundaria); border-color: var(--secundaria); text-decoration: none;}
+.sobre_lista a:hover span { color: var(--secundaria); }
+.sobre_lista a:hover .tit {border-color: var(--secundaria);}
+.sobre_lista a:hover .tit:after {border-color: var(--secundaria);}
+
+.assessoria {margin-top: 110px;}
+.assessoria .conteudo {width: 1335px;}
+.assessoria .coluna_esq { width: 750px; float: left; letter-spacing: -5px; font-size: 166px; color: #FFF; line-height: 143px; font-family: "avenir_demi", sans-serif;}
+.assessoria .coluna_esq span {color: #5e5e5e;}
+.assessoria .coluna_dir {width: 511px; float: right;}
+.assessoria .coluna_dir .assessoria_lista { margin-top: 40px;}
+.assessoria .coluna_dir .assessoria_lista .icone { width:106px; height:80px; float: left;}
+.assessoria .coluna_dir .assessoria_lista .texto { width: 405px; height:80px; line-height: 22px; float: left; font-size: 20px; color: #FFF; font-family: "avenir_medium", sans-serif;}
+
+@media only screen and (max-width: 1480px){
+  .assessoria .coluna_esq { margin-left: 30px;}
+}
+
+@media only screen and (max-width: 1280px){
+  .assessoria .conteudo {width: 90%; margin-left: auto; margin-right: auto;}
+  .assessoria .coluna_esq,.assessoria .coluna_dir {width: 100%; float: none;}
+  .assessoria .coluna_dir .assessoria_lista .icone { width:100%; height:80px; float: none; text-align: center;}
+  .assessoria .coluna_dir .assessoria_lista {width: 30%; float: left; text-align: center; margin-top: 100px;}
+  .assessoria .coluna_dir .assessoria_lista .texto { width: 100%; line-height: 35px;}
+}
+
+@media only screen and (max-width: 950px){
+  .assessoria .coluna_dir .assessoria_lista {width:100%}
+}
+
+
+.videos {margin-top: 220px;}
+.videos .play { position: absolute;top: 40%; right: auto; margin-left: 600px; z-index: 999}
+.videos .play i { color: #FFF; font-size: 100px; opacity: 0.5; z-index: 999; transition: all .3s linear}
+.videos a:hover { text-decoration: none;}
+.videos a:hover i {opacity: 1}
+
+@media only screen and (max-width: 1280px){
+  .videos .play { margin-left: 500px;}
+}
+@media only screen and (max-width: 1280px){
+  .videos .play { margin-left: 450px;}
+}
+@media only screen and (max-width: 980px){
+  .videos .play { display: none;}
+}
+
+.invista { padding: 60px 0px; background-color: #E8E8E8; margin-top: 210px;}
+.invista h2 { width: 613px; font-family: "avenir_bold", sans-serif; font-size: 60px; color: #000; line-height: 58px;}
+.invista h2 strong { font-weight: 400; font-family: "avenir_bold", sans-serif;}
+.invista .txt { width: 613px; font-family: "avenir_medium", sans-serif; font-size: 23px; color: #000; margin-top: 40px;}
+.invista .txt p { margin-top: 30px;}
+.invista .chamada { width: 680px; font-family: "avenir_medium", sans-serif; font-size: 23px; color: #000; margin-top: 30px;}
+
+.invista .formulario { margin-top: 30px;}
+.invista .formulario .col_esq,.invista .formulario .col_dir { width: 600px; float: left;}
+.invista .formulario .col_dir { width: 600px; float: right;}
+.invista .formulario .opcoes, .invista .formulario .captcha { line-height: 52px; min-height: 52px; margin-top: 30px;}
+
+@media only screen and (max-width: 1380px){
+  .invista .formulario .col_esq,.invista .formulario .col_dir { width: 48%;}
+}
+
+@media only screen and (max-width: 960px){
+  .invista .formulario .col_esq,.invista .formulario .col_dir { width: 100%;}
+}
+@media only screen and (max-width: 780px){
+  .invista h2,.invista .txt,.invista .chamada { width: 90%;}
+}
+@media only screen and (max-width: 580px){
+.invista h2 { font-size: 50px;}
+}
+
+.contato {background: url("img/contato.jpg") top center no-repeat fixed;}
+.gmaps {filter: grayscale(100%); overflow: hidden; padding-bottom: 468px; position: relative; height: 0; }
+.gmaps iframe { left: 0; top: 0; height: 100%; width: 100%; position: absolute; }
+
+.contato .titulo_pagina { padding: 100px 0px 100px 0px; }
+.contato .titulo_pagina h2 { display: inline-block;font-size: 30px; font-family: "din_bold", sans-serif; color: var(--terciaria); border-bottom:2px solid var(--terciaria); }
+
+.contatos { background-color: #FFF; padding-bottom: 50px}
+.contatos .conteudo {justify-content: space-between;display: flex; font-family: "avenir_book", sans-serif; font-size: 20px; line-height: 40px; color: #000}
+.contatos strong {font-weight: normal; font-family: "din_bold", sans-serif;}
+.contatos .colunas {padding-top: 50px;}
+@media only screen and (max-width: 980px){
+.contatos .conteudo {justify-content:center;display: block; width: 100%; float: none; text-align: center;}
+}
+
+.contato .formulario .col_esq,.contato .formulario .col_dir { width: 600px; float: left;}
+.contato .formulario .col_dir { width: 600px; float: right;}
+.contato .formulario .captcha { line-height: 52px; min-height: 52px; margin-top: 30px;}
+.contato .formulario .titulo { margin: 80px 0px 30px 0px;font-family: "avenir_bold", sans-serif; color: #FFF; display: inline-block; font-size: 18px;}
+.contato .formulario .titulo:after { display: block; margin-top: 8px;  border-top: 2px solid #FFF; content: '' }
+
+@media only screen and (max-width: 1380px){
+  .contato .formulario .col_esq,.contato .formulario .col_dir { width: 48%;}
+  .contato .titulo_pagina h2 { margin-left: 20px;}
+}
+
+@media only screen and (max-width: 960px){
+  .contato .formulario .col_esq,.contato .formulario .col_dir { width: 100%;}
+}

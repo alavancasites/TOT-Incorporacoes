@@ -31,6 +31,6 @@
   <div class="clear"></div>
   <footer><?php include("rodape.php")?></footer>
 <?php include("scripts.php"); ?>
-<script>AOS.init();</script>
+
 </body>
 </html>
