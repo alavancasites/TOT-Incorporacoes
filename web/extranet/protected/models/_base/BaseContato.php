@@ -35,7 +35,7 @@ abstract class BaseContato extends GxActiveRecord {
 	}
 
 	public static function representingColumn() {
-		return array('ip');
+		return array('nome');
 	}
 
 	public function rules() {

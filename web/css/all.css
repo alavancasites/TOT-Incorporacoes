@@ -82,7 +82,7 @@ html,textarea,input{font-family:inherit}ul{list-style:none;list-style-type:none}
 .rollover { opacity: 1;transition: all .3s linear }
 .rollover:hover { opacity: .7 }
 .margin0 { margin: 0!important }
-body { font-family: Arial, Helvetica, sans-serif; color: #666; font-size: 12px;background-color: var(--padrao); overflow-x: hidden}
+body { font-family: Arial, Helvetica, sans-serif; color: #666; font-size: 12px;background-color: var(--padrao); overflow-x: hidden;}
 a { text-decoration: none; color: #666;transition: all .3s linear }
 a:hover { text-decoration: underline; color: #333 }
 i {transition: all .3s linear }
@@ -136,7 +136,7 @@ i {transition: all .3s linear }
 .chamada_esq a {padding: 60px 70px 0px 70px; background-image: url("img/chamada_esq.jpg");background-position: left;}
 .chamada_dir a {padding: 140px 130px 0px 70px; height: 350px; background-image: url("img/chamada_dir.jpg");background-position: right;}
 .chamadas a strong {color:var(--terciaria);}
-.chamadas a span {display: inline-block; font-size: 22px; line-height: 55px; height: 55px; overflow: hidden;margin-top: 30px; border: 2px solid #FFF; border-radius: 10px; padding: 0px 35px; font-family: "avenir_book", sans-serif; background-color: transparent; transition: all .3s linear}
+.chamadas a span {display: inline-block; text-transform: uppercase;font-size: 22px; line-height: 55px; height: 55px; overflow: hidden;margin-top: 30px; border: 2px solid #FFF; border-radius: 10px; padding: 0px 35px; font-family: "avenir_book", sans-serif; background-color: transparent; transition: all .3s linear}
 .chamadas a:hover {text-decoration: none;}
 .chamadas a:hover span {background-color: #FFF; color:var(--padrao);}
 .chamadas a:hover span {box-shadow: 0px 0px 14px 0px rgba(255,255,255,.9);}
@@ -156,8 +156,16 @@ i {transition: all .3s linear }
 }
 
 @media only screen and (max-width: 980px){
+  .chamada_1 .txt, .chamada_2 .txt {text-shadow: 0px 0px 2px #000;}
   .chamadas { padding: 190px 0px 110px 0px;}
   .chamada_esq, .chamada_dir { width: 90%; float: none; margin:0px auto 50px auto;}
+}
+@media only screen and (max-width: 780px){
+  .chamadas { padding: 40px 0px 40px 0px;}
+  .chamadas a { line-height: 50px; font-size: 25px;}
+  .chamada_esq, .chamada_dir { width: 90%; float: none; margin:50px auto 50px auto;}
+  .chamada_esq a, .chamada_dir a {padding: 70px 50px 70px 50px; height: auto;}
+  .chamadas a span {display: block; font-size: 18px; line-height: 55px; height: 55px; padding: 0px 0px; text-align: center; text-transform: none}
 }
 
 footer {text-align: center; color: #FFF; font-family: "din_bold", sans-serif; padding-bottom: 100px; margin-top: 150px;}
@@ -169,12 +177,24 @@ footer .infos span {border: none}
 footer .infos a { display: inline-block; margin-left: 22px;}
 footer .infos i { font-size: 32px; line-height: 74px; vertical-align: middle; display: inline-block}
 footer .infos img { vertical-align: middle; display: inline-block; margin-left: 120px;}
+footer span i {font-style: normal;}
 @media only screen and (max-width: 1280px){
   footer {text-align: left}
 }
 @media only screen and (max-width: 980px){
   footer {text-align: center;}
   footer .infos {text-align: center; margin-top: 45px;}
+  footer .redes a:first-child { margin-left: 0px;}
+}
+@media only screen and (max-width: 580px){
+  footer .redes { display: block;}
+  footer .redes a:first-child { margin-left: 0px;}
+  footer .infos img {margin-left: 0px;}
+}
+@media only screen and (max-width: 380px){
+footer span { border: none;}
+footer span a { display: block;}
+  footer span i {display: none;}
 }
 
 .inicial footer { margin-top: 0px;}
@@ -195,15 +215,17 @@ footer .infos img { vertical-align: middle; display: inline-block; margin-left: 
 @media only screen and (max-width: 580px){
   .quem-somos #banner_internas strong {font-size: 50px;line-height: 50px;} 
 }
+@media only screen and (max-width: 480px){
+  .quem-somos #banner_internas strong {font-size: 30px;line-height: 40px;} 
+}
 
 .chamada_1 { background: url("img/quem_1.jpg") top right no-repeat; margin-top: 115px;}
 .chamada_1 .titulos { width: 400px; font-family: "avenir_black", sans-serif; color:var(--terciaria); font-size: 73px; line-height: 72px; padding-top: 30px; }
 .chamada_1 .txt {width: 545px; padding-bottom: 30px; color: #FFF; font-size: 18px; line-height: 38px; font-family: "avenir_book", sans-serif; margin-top: 30px;}
-.chamada_1 span {display: block;}
 .chamada_2 { background: url("img/quem_2.jpg") top left no-repeat; margin-top: 170px;}
 .chamada_2 .titulos { width: 590px; text-align: right; float: right;font-family: "avenir_black", sans-serif; color:var(--terciaria); font-size: 73px; line-height: 72px; padding-top: 30px; }
 .chamada_2 .txt {width: 590px; text-align: right; float: right; padding-bottom: 30px; color: #FFF; font-size: 18px; line-height: 38px; font-family: "avenir_book", sans-serif; margin-top: 30px;}
-.chamada_2 span {display: block;}
+.chamada_1 span,.chamada_2 span {display: block;}
 
 @media only screen and (max-width: 1380px){
   .chamada_1 .titulos,.chamada_2 .titulos { font-size: 50px; }
@@ -213,6 +235,12 @@ footer .infos img { vertical-align: middle; display: inline-block; margin-left: 
 @media only screen and (max-width: 750px){
   .chamada_1 .titulos,.chamada_2 .titulos { font-size: 40px; line-height: 40px; }
   .chamada_1 .titulos,.chamada_2 .titulos { width: 90%; margin: 30px auto 0px auto}
+  .chamada_1 .txt, .chamada_2 .txt {width: 90%; margin: 30px auto 0px auto;}
+  .chamada_1 span,.chamada_2 span {display: inline; margin-right: 10px}
+}
+@media only screen and (max-width: 580px){
+  .chamada_1 .titulos,.chamada_2 .titulos { font-size: 30px; line-height: 30px; }
+  .chamada_1 .titulos,.chamada_2 .titulos { width: 90%; margin: 0px auto}
   .chamada_1 .txt, .chamada_2 .txt {width: 90%; margin: 30px auto 0px auto;}
   .chamada_1 span,.chamada_2 span {display: inline; margin-right: 10px}
 }
@@ -234,6 +262,10 @@ footer .infos img { vertical-align: middle; display: inline-block; margin-left: 
 }
 @media only screen and (max-width: 780px){
   .destaque h2 {line-height:60px;}
+  .destaque h3 {line-height:40px;}
+}
+@media only screen and (max-width: 580px){
+  .destaque h2 { font-size: 30px; line-height: 50px;}
   .destaque h3 {line-height:40px;}
 }
 
@@ -276,7 +308,7 @@ footer .infos img { vertical-align: middle; display: inline-block; margin-left: 
 .assessoria {margin-top: 110px;}
 .assessoria .conteudo {width: 1335px;}
 .assessoria .coluna_esq { width: 750px; float: left; letter-spacing: -5px; font-size: 166px; color: #FFF; line-height: 143px; font-family: "avenir_demi", sans-serif;}
-.assessoria .coluna_esq span {color: #5e5e5e;}
+.assessoria .coluna_esq b {color: #5e5e5e; font-weight: 400}
 .assessoria .coluna_dir {width: 511px; float: right;}
 .assessoria .coluna_dir .assessoria_lista { margin-top: 40px;}
 .assessoria .coluna_dir .assessoria_lista .icone { width:106px; height:80px; float: left;}
@@ -288,10 +320,14 @@ footer .infos img { vertical-align: middle; display: inline-block; margin-left: 
 
 @media only screen and (max-width: 1280px){
   .assessoria .conteudo {width: 90%; margin-left: auto; margin-right: auto;}
+  .assessoria .coluna_esq { font-size: 80px; margin-left: 0px; line-height: 80px; text-align: center}
   .assessoria .coluna_esq,.assessoria .coluna_dir {width: 100%; float: none;}
   .assessoria .coluna_dir .assessoria_lista .icone { width:100%; height:80px; float: none; text-align: center;}
   .assessoria .coluna_dir .assessoria_lista {width: 30%; float: left; text-align: center; margin-top: 100px;}
   .assessoria .coluna_dir .assessoria_lista .texto { width: 100%; line-height: 35px;}
+}
+@media only screen and (max-width: 480px){
+  .assessoria .coluna_esq { font-size: 60px; line-height: 60px;}
 }
 
 @media only screen and (max-width: 950px){
@@ -326,7 +362,7 @@ footer .infos img { vertical-align: middle; display: inline-block; margin-left: 
 .invista .formulario .col_esq,.invista .formulario .col_dir { width: 600px; float: left;}
 .invista .formulario .col_dir { width: 600px; float: right;}
 .invista .formulario .opcoes, .invista .formulario .captcha { line-height: 52px; min-height: 52px; margin-top: 30px;}
-
+  
 @media only screen and (max-width: 1380px){
   .invista .formulario .col_esq,.invista .formulario .col_dir { width: 48%;}
 }
@@ -338,7 +374,9 @@ footer .infos img { vertical-align: middle; display: inline-block; margin-left: 
   .invista h2,.invista .txt,.invista .chamada { width: 90%;}
 }
 @media only screen and (max-width: 580px){
-.invista h2 { font-size: 50px;}
+.invista h2 { font-size: 40px;}
+}@media only screen and (max-width: 480px){
+.invista h2 { font-size: 30px;}
 }
 
 .contato {background: url("img/contato.jpg") top center no-repeat fixed;}
@@ -382,3 +420,4 @@ footer .infos img { vertical-align: middle; display: inline-block; margin-left: 
   #topo .menu a:hover, #topo .menu a.ativado { text-decoration: none; border:none; color: var(--secundaria); }
 
 }
+

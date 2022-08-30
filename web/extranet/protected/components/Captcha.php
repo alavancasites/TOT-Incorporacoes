@@ -1,8 +1,8 @@
 <?
 class Captcha{
 
-	protected $siteKey = '';
-	protected $secret  = '';
+	protected $siteKey = '6LdP1r0hAAAAAMx0fbwatU-qqHBW_9R5Fvu8AsXk';
+	protected $secret  = '6LdP1r0hAAAAAC9I72FdRrpr1I5ARG-CxMY5oOYi';
 	public $response;
 
 	public function validate(){

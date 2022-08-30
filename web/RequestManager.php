@@ -1,4 +1,4 @@
-<?class RequestManager{
+<?php class RequestManager{
 	private $_scriptUrl;
 	private $_baseUrl;
 	private $_hostInfo;

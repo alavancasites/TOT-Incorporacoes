@@ -1,8 +1,8 @@
 <?
 return array(
-    'host' => 'localhost',
-    'db' => 'tot',
-    'username' => 'root',
-    'password' => '',
+    'host' => 'kuentxa.mysql.dbaas.com.br',
+    'db' => 'kuentxa',
+    'username' => 'kuentxa',
+    'password' => 'NA4Nd!9ogLcz!m',
 );
 ?>

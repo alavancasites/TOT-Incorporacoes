@@ -1,4 +1,48 @@
+<? /*
+include_once("extranet/autoload.php");
+$model = new Contato();
+$captcha = new Captcha();
+$form = new CActiveForm();
 
+if(isset($_POST["g-recaptcha-response"])){
+  $captcha->response = $_POST["g-recaptcha-response"];
+}
+if(is_array($_POST['Contato'])){
+  if($captcha->validate()){
+
+    $model->attributes = $_POST['Contato'];
+    $model->data = date('d/m/Y H:i:s');
+    $model->ip = $_SERVER['REMOTE_ADDR'];
+
+    if($model->save()){
+      $model = new Contato();
+      $sucesso = 1;
+      header("Location: contato#fale-conosco?sucesso=1");
+    }
+
+    $erro = CHtml::errorSummary($model);
+
+  }else{
+    $erro = '<div class="errorSummary">Falha na verificação de segurança, por favor, marque a opção "Não sou um robô"</div>';
+  }
+}*/
+?>
+<?
+$model = new Invista();
+if(is_array($_POST['Invista'])){
+	$model->attributes = $_POST['Invista'];
+	$model->data = date('d/m/Y H:i:s');
+	$model->ip = $_SERVER['REMOTE_ADDR'];
+
+	if($model->save()){
+		$model = new Invista();
+		$sucesso = 1;
+		header("Location: empreendimentos?sucesso=1#invista");
+	}
+}
+$erro = CHtml::errorSummary($model);
+$form = new CActiveForm();
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN" "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br">
 <head profile="http://gmpg.org/xfn/11">
@@ -7,45 +51,43 @@
 <?php include("header.php"); ?>
 <style type="text/css"><?php echo file_get_contents ('css/fancybox.css');?> <?php echo file_get_contents ('css/slick.css');?><?php echo file_get_contents ('css/formularios.css');?></style>
 </head>
-<body class="">
+<body class="empreendimentos_infos">
+<?php
+  $criteria = new CDbCriteria();
+  $criteria->order = 'idempreendimento desc';
+  $criteria->addCondition( "ativo = 1" );
+  $empreendimentos = Empreendimento::model()->findAll( $criteria );
+  foreach ( $empreendimentos as $empreendimento ) {
+?>
   <header>
     <div id="topo" data-aos="fade-down" data-aos-duration="1000"><?php include("topo.php"); ?></div>
     <div id="banner"><?php include("banner_lista.php"); ?></div>
   </header>
-  <section class="chamadas">
-    <div class="conteudo">
-      <div class="chamada_esq" data-aos="fade-up" data-aos-duration="1000">
-        <a href="quem-somos">Transformar o jeito de viver e ter a experi&ecirc;ncia de ser o lugar que voc&ecirc; sempre quis,<strong> essa &eacute; a TOT Incorpora&ccedil;&atilde;o.</strong><br />
-        <span class="hvr-grow">CONHE&Ccedil;A MAIS</span></a>
-      </div>
-      <div class="chamada_dir" data-aos="fade-up" data-aos-duration="1500">
-        <a href="contato">D&uacute;vidas, Coment&aacute;rios e Sugest&otilde;es?<br /><strong>Fale com a TOT</strong><br />
-        <span class="custom-btn">FALE CONOSCO</span></a>
-      </div>
-      <div class="clear"></div>
-    </div>
-  </section>
   <section class="destaque" data-aos="fade-down" data-aos-duration="1000">
     <div class="conteudo">
       <h2><span><img src="img/banner_localizacao.svg" width="52" height="65" alt="O 1&ordm; empreendimento da Housi em Chapec&oacute;"/></span>O 1&ordm; empreendimento<br />da Housi em Chapec&oacute;<br />est&aacute; localizado no ponto<br />alto do centro de cidade.</h2>
-      <h3>E &eacute; a escolha certa para <strong>morar ou investir</strong> com seguran&ccedil;a.</h3>
+      <h3><?=$empreendimento->chamada?></h3>
     </div>
   </section>
   <section class="diferenciais">
     <div class="conteudo">
     <?
       $clear=0;
-      for ($i=1; $i<7; $i++){
+      $criteria = new CDbCriteria();
+      $criteria->order = 'iddiferencial asc';
+      $criteria->addCondition( "ativo = 1" );
+      $diferenciais = Diferencial::model()->findAll( $criteria );
+      foreach ( $diferenciais as $diferencial ) {
         $clear++;
         if ($clear%2==0){
-          $efeito = "data-aos='fade-right'";
+          $efeito = "data-aos='fade-up'";
         }else{
-          $efeito = "data-aos='fade-left'";
+          $efeito = "data-aos='fade-up'";
         }
     ?>
       <div class="caracteristicas" <?=$efeito?> data-aos-duration="1000">
-        <div><img src="img/_del/car_<?=$i?>.png" alt=""/></div>
-        <div>Pronto para morar, decorado e com serviços completos.</div>
+        <div><img src="extranet/uploads/Diferencial/<?=$diferencial->icone?>" alt="<?=$diferencial->titulo?>"/></div>
+        <div><?=$diferencial->texto?></div>
       </div>
       <?
         if ($clear%2==0){		
@@ -65,15 +107,19 @@
       <div class="titulos" data-aos="fade-down" data-aos-duration="1000"><h2>Sobre o empreendimento</h2></div>
       <div class="galeria" data-aos="fade-up" data-aos-duration="1000">
         <?
-          for ($i=0; $i<10; $i++){
+          $criteria = new CDbCriteria();
+          $criteria->order = 'ordem asc';
+          $criteria->addCondition( "ativo = 1" );
+          $caracteristicas = Caracteristica::model()->findAll( $criteria );
+          foreach ( $caracteristicas as $caracteristica ) {
         ?>
           <div>
             <div class="sobre_lista">
               <div>
-                <a href="#">
-                <span class="ordem">01</span>
-                <span class="tit">BICICLET&Aacute;RIO</span>
-                <span class="area">&Aacute;REA COMUM</span>
+                <a>
+                <span class="ordem"><?=$caracteristica->ordem?></span>
+                <span class="tit"><?=$caracteristica->titulo?></span>
+                <span class="area"><?=$caracteristica->area?></span>
               </a></div>
             </div>
           </div>
@@ -84,18 +130,22 @@
       <div class="clear"></div>
     </div>
   </section>
-  <section><div><img src="img/_del/empreendimentos.jpg" width="1920" height="1081" class="imgfull" alt=""/></div></section>
+  <section><div><img src="extranet/uploads/Empreendimento/<?=$empreendimento->imagem?>" width="1920" height="1081" class="imgfull" alt="<?=$empreendimento->chamada?>"/></div></section>
   <section class="assessoria">
     <div class="conteudo">
-      <div class="coluna_esq">Toda a assessoria da <span>Housi.</span></div>
+      <div class="coluna_esq"><?=$empreendimento->video_titulo?></div>
       <div class="coluna_dir">
         <div>
           <?
-            for ($i=0; $i<3; $i++){
+            $criteria = new CDbCriteria();
+            $criteria->order = 'idassessoria asc';
+            $criteria->addCondition( "ativo = 1" );
+            $assessorias = Assessoria::model()->findAll( $criteria );
+            foreach ( $assessorias as $assessoria ) {
           ?>
             <div class="assessoria_lista">
-              <div class="icone"><img src="img/_del/housi_decor.svg" height="65" alt=""/></div>
-              <div class="texto">Facilidade no pagamento.<br />Pix, cart&atilde;o de cr&eacute;dito sem<br />comprometer seu limite e boleto.</div>
+              <div class="icone"><img src="extranet/uploads/Assessoria/<?=$assessoria->icone?>" height="65" alt="<?=$assessoria->titulo?>"/></div>
+              <div class="texto"><?=$assessoria->texto?></div>
               <div class="clear"></div>
             </div>
           <?
@@ -107,15 +157,28 @@
       <div class="clear"></div>
       <div class="videos">
         <?
-          for ($i=0; $i<10; $i++){
+          $criteria = new CDbCriteria();
+          $criteria->order = 'idvideo asc';
+          $criteria->addCondition( "ativo = 1" );
+          $videos = Video::model()->findAll( $criteria );
+          foreach ( $videos as $video ) {
+            if ($video->video != NULL){
         ?>
-          <div><a href="https://www.youtube.com/watch?v=54exMWzGZyA" class="various fancybox"><div class="play"><i class="icon-play"></i></div><img src="img/_del/video.jpg" width="1333" height="679" alt=""/></a></div>
+          <div><a href="<?=$video->video?>" class="various fancybox"><div class="play"><i class="icon-play"></i></div><img src="img/_del/video.jpg" width="1333" height="679" class="imgfull" alt="<?=$video->titulo?>"/></a></div>
         <?
+          }else{
+        ?>  
+          <div><img src="extranet/uploads/Video/<?=$video->imagem?>" width="1333" height="679" alt="<?=$video->titulo?>" class="imgfull"/></div>
+        <?
+            }
           }
         ?>      
       </div>
     </div>
   </section>
+<?php
+  }
+?>  
   <section class="invista">
     <div class="conteudo">
       <h2>Invista no 1&ordm; empreendimento Housi de Chapec&oacute;</h2>
@@ -129,16 +192,33 @@
       </div>
       <div class="chamada">Encontre o melhor retorno. N&oacute;s entramos em contato com voc&ecirc;.</div>
       <div class="formulario">
-        <form id="form1" name="form1" method="post" action="">
-          <div class="colunas"><input name="email" type="text" id="email" placeholder="Nome" /></div>
-          <div class="colunas col_esq"><input name="email" type="text" id="email" placeholder="Telefone" /></div>
-          <div class="colunas col_dir"><input name="email" type="text" id="email" placeholder="E-mail" /></div>
-          <div class="colunas col_esq"><input name="email" type="text" id="email" placeholder="Endereço" /></div>
-          <div class="colunas col_dir opcoes"><label>Desejo ser:</label><label for="morador">Morador</label><input type="radio" value="Morador" id="morador" name="opcao" class="radio" /><label for="investidor">Investidor</label><input type="radio" value="Investidor" id="investidor" name="opcao" class="radio" /><div class="clear"></div></div>
-          <div class="colunas col_esq captcha"><img src="img/_del/captcha.png" width="307" height="80" alt=""/></div>
-          <div class="colunas col_dir"><button name="enviar" type="submit" value="">Enviar</button></div>
-          <div class="colunas clear"></div>
-        </form>      
+      <?
+        if(!empty($erro)){
+      ?>
+        <div class="error margin20"><?=$erro;?></div>
+      <?
+        }if($_GET['sucesso'] == 1){
+      ?>
+        <div class="sucesso_msg">Contato enviado com sucesso. Obrigado!</div>
+      <?
+        }
+      ?>
+      <form id="invista" name="form1" method="post" action="empreendimentos#invista">
+        <input type="hidden" name="grava" value="1" />
+        <?php echo $form->textField($model,'nome',array('class'=>'colunas','maxlength'=>100,'placeholder'=>$model->getAttributeLabel('nome'))); ?>
+        <?php echo $form->textField($model,'telefone',array('class'=>'colunas col_esq','maxlength'=>100,'placeholder'=>$model->getAttributeLabel('telefone'))); ?>
+        <?php echo $form->textField($model,'email',array('class'=>'colunas col_dir','maxlength'=>100,'placeholder'=>$model->getAttributeLabel('email'))); ?>
+        <?php echo $form->textField($model,'endereco',array('class'=>'colunas col_esq','maxlength'=>100,'placeholder'=>$model->getAttributeLabel('endereco'))); ?>
+        <div class="colunas col_dir opcoes">
+          <label>Desejo ser:</label><span class="limpa"></span>
+          <label class="morador" for="morador">Morador</label><input type="radio" value="Morador" id="morador" name="Invista[opcao]" class="radio" /><span class="limpa"></span>
+          <label for="investidor">Investidor</label><input type="radio" value="Investidor" id="investidor" name="Invista[opcao]" class="radio" />
+          <div class="clear"></div>
+        </div>
+        <div class="colunas col_esq captcha"><?// $captcha->create(); ?></div>
+        <div class="colunas col_dir"><button name="enviar" type="submit" value="">Enviar</button></div>
+        <div class="colunas clear"></div>
+      </form>      
       </div>
     </div>
   </section>
@@ -168,8 +248,8 @@ $(document).ready(function() {
     maxHeight   : 600,
     fitToView   : false,
     width       : '70%',
-    height      : '70%',
-    autoSize    : false,
+    height      : '50%',
+    autoSize    : true,
     closeClick  : false,
     openEffect  : 'none',
     closeEffect : 'none'

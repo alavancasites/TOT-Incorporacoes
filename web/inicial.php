@@ -14,11 +14,11 @@
     <div class="conteudo">
       <div class="chamada_esq" data-aos="fade-up" data-aos-duration="1000">
         <a href="quem-somos">Transformar o jeito de viver e ter a experi&ecirc;ncia de ser o lugar que voc&ecirc; sempre quis,<strong> essa &eacute; a TOT Incorpora&ccedil;&atilde;o.</strong><br />
-        <span class="hvr-grow">CONHE&Ccedil;A MAIS</span></a>
+        <span class="hvr-grow">Conhe&ccedil;a mais</span></a>
       </div>
       <div class="chamada_dir" data-aos="fade-up" data-aos-duration="1500">
         <a href="contato">D&uacute;vidas, Coment&aacute;rios e Sugest&otilde;es?<br /><strong>Fale com a TOT</strong><br />
-        <span class="custom-btn">FALE CONOSCO</span></a>
+        <span class="custom-btn">Fale conosco</span></a>
       </div>
       <div class="clear"></div>
     </div>

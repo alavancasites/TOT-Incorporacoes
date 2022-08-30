@@ -22,3 +22,11 @@ form .radio {float: left; width: 30px; line-height: 52px; margin-top: 20px;}
   form button,
   .contato .formulario form button { float: none !important}
 }
+@media only screen and (max-width: 580px){
+  .limpa {clear: both; display: block}
+  form .opcoes label:first-child { width: 100%; float: none;}
+  form .col_dir label { text-align: left;}
+
+form .radio {float: left; width: 30px; line-height: 52px; margin-top: 20px;}
+  
+}
