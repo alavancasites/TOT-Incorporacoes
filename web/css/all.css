@@ -6,14 +6,15 @@
 @font-face {font-family: 'avenir_roman';src: url('css/fontes/avenir-roman-webfont.woff2') format('woff2'), url('css/fontes/avenir-roman-webfont.woff') format('woff');font-weight: normal;font-style: normal;}
 @font-face {font-family: 'din_bold';src: url('css/fontes/din-bold-webfont.woff2') format('woff2'), url('css/fontes/din-bold-webfont.woff') format('woff');font-weight: normal;font-style: normal;}
 @font-face {font-family: 'icomoon';src:  url('css/fontes/icomoon.eot?hj3kxv');src:  url('css/fontes/icomoon.eot?hj3kxv#iefix') format('embedded-opentype'),url('css/fontes/icomoon.ttf?hj3kxv') format('truetype'),url('css/fontes/icomoon.woff?hj3kxv') format('woff'),url('css/fontes/icomoon.svg?hj3kxv#icomoon') format('svg');font-weight: normal;font-style: normal;font-display: block;}[class^="icon-"], [class*=" icon-"] {font-family: 'icomoon' !important;speak: never;font-style: normal;font-weight: normal;font-variant: normal;text-transform: none;line-height: 1;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;}
-.icon-video_dir:before {content: "\e900";}
-.icon-video_esq:before {content: "\e901";}
-.icon-seta_dir:before {content: "\e902";}
-.icon-seta_esq:before {content: "\e903";}
-.icon-facebook:before {content: "\e908";}
-.icon-instagram:before {content: "\e90c";}
-.icon-linkedin:before {content: "\e90d";}
-.icon-play:before {content: "\e904";}
+.icon-video_dir:before {content: "\e900"}
+.icon-video_esq:before {content: "\e901"}
+.icon-seta_dir:before {content: "\e902"}
+.icon-seta_esq:before {content: "\e903"}
+.icon-facebook:before {content: "\e908"}
+.icon-instagram:before {content: "\e90c"}
+.icon-linkedin:before {content: "\e90d"}
+.icon-play:before {content: "\e904"}
+.icon-menu:before {content: "\e9bd"}
 /*-------------------------------- ! FONTES !-----------------------------*/
 /*------------------------------------------------------------------------
 @import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&display=swap);font-family: Roboto, sans-serif;
@@ -69,6 +70,7 @@ html,textarea,input{font-family:inherit}ul{list-style:none;list-style-type:none}
 /*.paginacao a { font-size: 14px }*/
 /*<div class="paginacao"><a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a></div>*/
 
+
 .conteudo {width: 90%; margin-left: auto; margin-right: auto;}
 @media only screen and (min-width: 1600px){
 .conteudo {width: 1440px;}
@@ -80,7 +82,7 @@ html,textarea,input{font-family:inherit}ul{list-style:none;list-style-type:none}
 .rollover { opacity: 1;transition: all .3s linear }
 .rollover:hover { opacity: .7 }
 .margin0 { margin: 0!important }
-body { font-family: Arial, Helvetica, sans-serif; color: #666; font-size: 12px;background-color: var(--padrao); }
+body { font-family: Arial, Helvetica, sans-serif; color: #666; font-size: 12px;background-color: var(--padrao); overflow-x: hidden}
 a { text-decoration: none; color: #666;transition: all .3s linear }
 a:hover { text-decoration: underline; color: #333 }
 i {transition: all .3s linear }
@@ -101,22 +103,28 @@ i {transition: all .3s linear }
 #topo .menu a:first-child { margin-left: 0px;}
 #topo .menu a:hover, #topo .menu a.ativado { text-decoration: none; border-color:#E9E9E9 }
 @media only screen and (max-width: 1180px){
-#topo .logo { margin-left: 40px;}
-#topo .menu {margin-right: 40px;}
+  #topo .logo { margin-left: 40px;}
+  #topo .menu {margin-right: 40px;}
 }
 @media only screen and (max-width: 780px){
-#topo { height: auto;}
-#topo .logo, #topo .menu {margin-left: 0px; margin-right: 0px; text-align: center; float: none; width: 100%}
-#topo .logo img { width: 150px}
+  #topo { height: auto;}
+  #topo .logo, #topo .menu {margin-left: 0px; margin-right: 0px; text-align: center; float: none; width: 100%}
+  #topo .logo img { width: 150px}
 }
 @media only screen and (max-width: 580px){
 
 }
 
-
 #banner {max-height: 920px; overflow: hidden}
 .banner_imagem {-webkit-animation: 1s ease 0s normal forwards 1 fadein;animation: 1s ease 0s normal forwards 1 fadein;}
 .banner_texto{position: absolute; top:150px;-webkit-animation: 3s ease 0s normal forwards 1 fadein;animation: 3s ease 0s normal forwards 1 fadein;}
+@media only screen and (max-width: 780px){
+ .banner_texto{ top: 253px;}
+}
+@media only screen and (max-width: 680px){
+ .banner_texto{ position: relative;top: 0px;}
+.banner_imagem { display: none;}
+}
 
 @keyframes fadein{0% { opacity:0; }66% { opacity:0; }100% { opacity:1; }}
 @-webkit-keyframes fadein{0% { opacity:0; }66% { opacity:0; }100% { opacity:1; }}
@@ -361,4 +369,16 @@ footer .infos img { vertical-align: middle; display: inline-block; margin-left: 
 
 @media only screen and (max-width: 960px){
   .contato .formulario .col_esq,.contato .formulario .col_dir { width: 100%;}
+}
+@media only screen and (min-width: 681px){
+  .menuButton { display: none}
+  .menuLinks { display: block;}
+}
+@media only screen and (max-width: 680px){
+  .menuButton { display: block; cursor: pointer;}
+  .menuButton i { font-size: 24px; color: #FFF;}
+  .menuLinks { display: none}
+  #topo .menuLinks a { display: block; text-align: center; margin-left: 0px; font-size: 20px; border:none}
+  #topo .menu a:hover, #topo .menu a.ativado { text-decoration: none; border:none; color: var(--secundaria); }
+
 }

@@ -1,4 +1,5 @@
 <? $linkMenu = str_replace(explode("/",""),"",current(explode("?",$_SERVER['REQUEST_URI'])));?>
+<div class="menuButton"><i class="icon-menu"></i></div>
 <div class="menuLinks">
   <a href="inicial" <?=(strpos($linkMenu,"inicial")!==false?"class='ativado'":"")?>>HOME</a>
   <a href="quem-somos" <?=(strpos($linkMenu,"quem-somos")!==false?"class='ativado'":"")?>>QUEM SOMOS</a>
